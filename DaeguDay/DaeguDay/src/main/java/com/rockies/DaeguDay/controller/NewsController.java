@@ -24,6 +24,12 @@ public class NewsController {
         model.addAttribute("newsList", newses);
         return "newsList";
     }
+    @GetMapping("/front/newsList/korona")
+    public String world(Model model){
+        List<News> newsList=newsService.findAllByCategory("코로나");
+        model.addAttribute("newsList",newsList);
+        return "korona";
+    }
     @GetMapping("/News/new")
     public String insertForm(){
         return "/News/insertcategory";

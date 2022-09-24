@@ -15,8 +15,8 @@ public class News {
     private String date;
     private String press;
     private String headline;
-    @Id
     private String content;
+    @Id
     private String url;
     private String category;
 
