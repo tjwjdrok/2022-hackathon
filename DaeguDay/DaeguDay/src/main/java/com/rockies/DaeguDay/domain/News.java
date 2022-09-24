@@ -7,12 +7,14 @@ import javax.persistence.*;
 
 @Entity
 @Data
+@Table(name="NEWSLIST")
 public class News {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) //IDENTITY
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
 
     private String date;
     private String headline;
+    @Id
     private String url;
     private int category;
 
