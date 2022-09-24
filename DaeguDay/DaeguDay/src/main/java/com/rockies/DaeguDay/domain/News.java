@@ -13,8 +13,11 @@ public class News {
 //    private Long id;
 
     private String date;
+    private String press;
     private String headline;
     @Id
+    private String content;
     private String url;
     private String category;
+
 }

@@ -184,7 +184,7 @@
 
     <!-- 뉴스 검색 -->
     <div class="form-group">
-      <h2 style = >원하는 뉴스를 찾아보세요!</h2>
+        <h2 style = >원하는 뉴스를 찾아보세요!</h2>
         <!-- <input class="form-control tag-input" type="text" placeholder="해시태그를 검색해보세요!" th:value="${tag}"/>
         <button class="btn search-btn" onclick="search()">검색</button> -->
     </div>
@@ -197,44 +197,44 @@
             <div class="btn category-btn">전체</div>
         </label>
         <label>
-          <input class="hidden category-input" type="radio" name="category" value
-                 th:attr="checked=${checkedCategory} == null" onclick="search()"/>
-          <div class="btn category-btn">IT과학</div>
+            <input class="hidden category-input" type="radio" name="category" value
+                   th:attr="checked=${checkedCategory} == null" onclick="search()"/>
+            <div class="btn category-btn">IT과학</div>
         </label>
         <label>
-          <input class="hidden category-input" type="radio" name="category" value
-                 th:attr="checked=${checkedCategory} == null" onclick="search()"/>
-          <div class="btn category-btn">경제</div>
+            <input class="hidden category-input" type="radio" name="category" value
+                   th:attr="checked=${checkedCategory} == null" onclick="search()"/>
+            <div class="btn category-btn">경제</div>
         </label>
         <label>
-          <input class="hidden category-input" type="radio" name="category" value
-                 th:attr="checked=${checkedCategory} == null" onclick="search()"/>
-          <div class="btn category-btn">사회</div>
+            <input class="hidden category-input" type="radio" name="category" value
+                   th:attr="checked=${checkedCategory} == null" onclick="search()"/>
+            <div class="btn category-btn">사회</div>
         </label>
         <label>
-          <input class="hidden category-input" type="radio" name="category" value
-                 th:attr="checked=${checkedCategory} == null" onclick="search()"/>
-          <div class="btn category-btn">생활문화</div>
+            <input class="hidden category-input" type="radio" name="category" value
+                   th:attr="checked=${checkedCategory} == null" onclick="search()"/>
+            <div class="btn category-btn">생활문화</div>
         </label>
         <label>
-          <input class="hidden category-input" type="radio" name="category" value
-                 th:attr="checked=${checkedCategory} == null" onclick="search()"/>
-          <div class="btn category-btn">세계</div>
+            <input class="hidden category-input" type="radio" name="category" value
+                   th:attr="checked=${checkedCategory} == null" onclick="search()"/>
+            <div class="btn category-btn">세계</div>
         </label>
         <label>
-          <input class="hidden category-input" type="radio" name="category" value
-                 th:attr="checked=${checkedCategory} == null" onclick="search()"/>
-          <div class="btn category-btn">스포츠</div>
+            <input class="hidden category-input" type="radio" name="category" value
+                   th:attr="checked=${checkedCategory} == null" onclick="search()"/>
+            <div class="btn category-btn">스포츠</div>
         </label>
         <label>
-          <input class="hidden category-input" type="radio" name="category" value
-                 th:attr="checked=${checkedCategory} == null" onclick="search()"/>
-          <div class="btn category-btn">정치</div>
+            <input class="hidden category-input" type="radio" name="category" value
+                   th:attr="checked=${checkedCategory} == null" onclick="search()"/>
+            <div class="btn category-btn">정치</div>
         </label>
         <label>
-          <input class="hidden category-input" type="radio" name="category" value
-                 th:attr="checked=${checkedCategory} == null" onclick="search()"/>
-          <div class="btn category-btn">코로나</div>
+            <input class="hidden category-input" type="radio" name="category" value
+                   th:attr="checked=${checkedCategory} == null" onclick="search()"/>
+            <div class="btn category-btn">코로나</div>
         </label>
         <!-- <label th:each="category : ${categories}">
             <input class="hidden category-input" type="radio" name="category"
@@ -269,10 +269,10 @@
 
     <!-- 뉴스 목록 -->
     <div class="article-list-container">
-        <a class="article-container link" th:each="newses : ${newses}"
-           th:href="@{/articles/{articleId}(articleId=${article.id})}">
+        <a class="article-container link" th:each="article : ${newsList}"
+           th:href="@{${article?.url}}">
             <div class="article-title" th:text="${article.headline}"></div>
-            <div class="article-content" th:text="${article.url}"></div>
+            <div class="article-content" th:text="${article.content}"></div>
         </a>
     </div>
 </div>
