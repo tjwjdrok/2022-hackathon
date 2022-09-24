@@ -8,13 +8,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Category {
-    private int category;
+    private String category;
 
-    public int getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(String category) {
         this.category = category;
     }
+
+
 }

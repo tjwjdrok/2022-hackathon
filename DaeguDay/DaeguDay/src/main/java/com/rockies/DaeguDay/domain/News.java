@@ -11,11 +11,9 @@ import javax.persistence.*;
 public class News {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private Long id;
-
     private String date;
     private String headline;
     @Id
     private String url;
-    private int category;
-
+    private String category;
 }
