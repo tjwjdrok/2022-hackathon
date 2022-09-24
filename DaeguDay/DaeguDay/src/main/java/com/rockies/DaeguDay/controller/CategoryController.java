@@ -13,9 +13,9 @@ public class CategoryController {
     private NewsService newsService;
 
     @PostMapping(value = "/News/new")
-    public String insert(@Param("category") String category){
-        int c = Integer.parseInt(category);
-        newsService.findByCategory(c);
+    public String insert(@Param("category") Long category){ //Stirng category->int category
+        //int c = Integer.parseInt(category);
+        newsService.findByCategory(category);
         return "redirect:/";
     }
 }
