@@ -1,21 +1,28 @@
 package com.rockies.DaeguDay.controller;
 
 import com.rockies.DaeguDay.domain.Category;
-import com.rockies.DaeguDay.repository.NewsRepository;
+import com.rockies.DaeguDay.domain.News;
 import com.rockies.DaeguDay.service.NewsService;
-import org.springframework.data.repository.query.Param;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class CategoryController {
 
-    private NewsService newsService;
+    private final NewsService newsService;
+    @Autowired
+    public CategoryController(NewsService newsService) {
+        this.newsService = newsService;
+    }
 
     @PostMapping(value = "/News/new")
-    public String insert(@Param("category") Long category){ //Stirng category->int category
-        //int c = Integer.parseInt(category);
-        newsService.findByCategory(category);
-        return "redirect:/";
+    public String insert(Category category, Model model){
+        List<News> newsList = newsService.findAllByCategory(category.getCategory());
+        model.addAttribute("newslist", newsList);
+        return "News/newslist1";
     }
 }
