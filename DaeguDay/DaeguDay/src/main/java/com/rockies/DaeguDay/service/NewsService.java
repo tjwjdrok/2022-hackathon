@@ -21,7 +21,7 @@ public class NewsService {
         return newsRepository.findAll();
     }
 
-    public List<News> findAllByCategory(int category){
+    public List<News> findAllByCategory(String category){
         return  newsRepository.findAllByCategory(category);
     }
 }

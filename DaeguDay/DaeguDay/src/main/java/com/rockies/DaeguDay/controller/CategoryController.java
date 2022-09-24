@@ -23,6 +23,6 @@ public class CategoryController {
     public String insert(Category category, Model model){
         List<News> newsList = newsService.findAllByCategory(category.getCategory());
         model.addAttribute("newslist", newsList);
-        return "News/newslist1";
+        return "News/newsList";
     }
 }

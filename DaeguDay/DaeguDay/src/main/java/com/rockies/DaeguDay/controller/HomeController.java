@@ -9,4 +9,12 @@ public class HomeController {
     public String home(){
         return "home";
     }
+    @GetMapping("/front/login")
+    public String log(){
+        return "login";
+    }
+    @GetMapping("/front/myNews")
+    public String myNews(){
+        return"myNews";
+    }
 }

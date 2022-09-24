@@ -18,18 +18,14 @@ public class NewsController {
     public NewsController(NewsService newsService) {
         this.newsService = newsService;
     }
-
-    @GetMapping("/News")
+    @GetMapping("/front/newsList")
     public String list(Model model){
         List<News> newses = newsService.findAll();
-        model.addAttribute("newslist", newses);
-        return "News/newslist1";
+        model.addAttribute("newsList", newses);
+        return "newsList";
     }
-
     @GetMapping("/News/new")
     public String insertForm(){
         return "/News/insertcategory";
     }
-
-
 }
