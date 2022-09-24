@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/css/header.css">
   <title>뉴스 보기</title>
   <style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
         .container {
             min-width: 600px;
             max-width: 700px;
@@ -147,6 +148,12 @@
             display: -webkit-box;
             -webkit-box-orient: vertical;
         }
+
+        .form-group h2 {
+          font-family: 'Anton', sans-serif;
+          margin: 0 auto;
+          color: rgba(23, 162, 184, 0.7);
+        }
     </style>
 </head>
 <body>
@@ -174,7 +181,7 @@
             <a class="nav-link " href="/front/newsList/economy">경제</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="/front/newsList/society">사회</a>
+            <a class="nav-link" href="/front/newsList/society">사회</a>
           </li>
           <li class="nav-item">
             <a class="nav-link " href="/front/newsList/culture">생활문화</a>
@@ -189,7 +196,7 @@
             <a class="nav-link " href="/front/newsList/politics">정치</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="/front/newsList/corona">코로나</a>
+            <a class="nav-link active" href="/front/newsList/corona">코로나</a>
           </li>
           <li class="nav-item">
             <!-- <a sec:authorize="isAuthenticated()" class="nav-link" href="/user/logout">로그아웃</a> -->
@@ -205,7 +212,7 @@
 
 
   <div class="form-group">
-    <h2 style = >원하는 뉴스를 찾아보세요!</h2>
+    <h2 style = >News</h2>
 
   </div>
 
