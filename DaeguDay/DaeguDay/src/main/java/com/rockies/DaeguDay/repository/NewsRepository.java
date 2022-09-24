@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public interface NewsRepository extends JpaRepository<News, Long> {
 
-    //@Query("select n from News n where n.category=?1")
+    @Query("select n from News n where n.category=?1")
     List<News> findAllByCategory(int category);
+
 }

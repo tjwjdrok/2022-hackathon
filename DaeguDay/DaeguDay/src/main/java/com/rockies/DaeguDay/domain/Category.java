@@ -1,15 +1,20 @@
 package com.rockies.DaeguDay.domain;
 
-import javax.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Category {
-    private int number;
+    private int category;
 
-    public int getNumber() {
-        return number;
+    public int getCategory() {
+        return category;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setCategory(int category) {
+        this.category = category;
     }
 }
