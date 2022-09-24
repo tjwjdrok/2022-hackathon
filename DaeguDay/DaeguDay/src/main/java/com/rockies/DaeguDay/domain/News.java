@@ -10,7 +10,7 @@ import javax.persistence.Id;
 @Data
 public class News {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO) //IDENTITY
     private Long id;
 
     private String date;
