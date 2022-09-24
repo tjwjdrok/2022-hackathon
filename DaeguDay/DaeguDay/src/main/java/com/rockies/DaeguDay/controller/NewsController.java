@@ -19,11 +19,11 @@ public class NewsController {
         this.newsService = newsService;
     }
 
-    @GetMapping("/News")
+    @GetMapping("/front/newsList")
     public String list(Model model){
         List<News> newses = newsService.findAll();
         model.addAttribute("newslist", newses);
-        return "News/newslist1";
+        return "newsList";
     }
 
     @GetMapping("/News/new")
