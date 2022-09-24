@@ -16,6 +16,5 @@ public class News {
     private String headline;
     @Id
     private String url;
-    private long category;
-
+    private int category;
 }
