@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/header.css">
+  <title>뉴스 보기</title>
+  <style>
+        .container {
+            min-width: 600px;
+            max-width: 700px;
+            width: 50%;
+            margin: 10px auto;
+        }
+
+        /* 해시태그 검색 */
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            height: 43px;
+        }
+
+        input[type=text] {
+            width: 100%;
+            height: 100%;
+            margin-right: 10px;
+            border: 1px solid rgba(23, 162, 184, 0.7);
+            border-radius: 10px;
+        }
+
+        .search-btn {
+            width: 120px;
+            height: 100%;
+            color: #ffffff;
+            background: rgba(23, 162, 184, 0.7);
+        }
+
+        .btn:hover {
+            color: #ffffff;
+            background: #17A2B8;
+        }
+
+        /* 카테고리 라디오 버튼 */
+        .category {
+            margin-top: 28px;
+        }
+
+        .category-btn {
+            min-width: 80px;
+            height: 40px;
+            color: #ffffff;
+            background: rgba(23, 162, 184, 0.5);
+            border-radius: 20px;
+            margin: 0 8px 10px 0;
+            border: 1px solid rgba(23, 162, 184, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .category input[type=radio]:checked + div {
+            background: #17A2B8;
+        }
+
+        /* 정렬 라디오 버튼 */
+        .sort {
+            display: flex;
+            font-weight: 500;
+            font-size: 14px;
+            margin-top: 28px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .sort label {
+            cursor: pointer;
+            display: flex;
+            margin-right: 16px;
+        }
+
+        .sort label div {
+            margin-top: 4px;
+            line-height: 24px;
+        }
+
+        .sort input[type=radio] + img {
+            color: rgba(0, 0, 0, 0.1);
+            margin-right: 12px;
+        }
+
+        .sort input[type=radio]:checked + img {
+            content: url("/images/mint-ellipse.svg");
+        }
+
+
+        /* 뉴스 목록 */
+        .article-list-container {
+            margin: 28px auto;
+            width: 800px;
+        }
+
+        .article-container {
+            display: block;
+            background: #FFFFFF;
+            border: 2px solid rgba(23, 162, 184, 0.7);
+            box-sizing: border-box;
+            border-radius: 10px;
+            width: 100%;
+            height: 240px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .article-container:hover {
+            border: 3px solid rgba(23, 162, 184, 0.7);
+            box-shadow: 5px 5px 5px 5px gainsboro;
+        }
+
+        .article-headline {
+            position: relative;
+            font-weight: 700;
+            font-size: 20px;
+            height: 50px;
+            margin-top: 3px;
+            margin-bottom: 10px;
+
+        }
+
+        .article-date {
+            position: absolute;
+            left: 1px;
+        }
+
+        .article-content {
+            font-weight: 400;
+            font-size: 16px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 5;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+        }
+    </style>
+</head>
+<body>
+<!-- 헤더 -->
+<div class="header">
+  <div class="logo">대구 DAY</div>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/front/newsList">전체</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/front/newsList/ItScience">IT과학</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/front/newsList/economy">경제</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/front/newsList/society">사회</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/front/newsList/culture">생활문화</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/front/newsList/world">세계</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/front/newsList/sports">스포츠</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/front/newsList/politics">정치</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/front/newsList/corona">코로나</a>
+          </li>
+          <li class="nav-item">
+            <!-- <a sec:authorize="isAuthenticated()" class="nav-link" href="/user/logout">로그아웃</a> -->
+            <a sec:authorize="!isAuthenticated()" class="nav-link" href="/front/login">로그인</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<!-- 버튼 눌럿을때 함수 인듯? -->
+<div class="container">
+
+
+  <div class="form-group">
+    <h2 style = >원하는 뉴스를 찾아보세요!</h2>
+
+  </div>
+
+
+  <!-- 뉴스 목록 -->
+  <div class="article-list-container">
+    <a class="article-container link" th:each="article : ${newsList}"
+       th:href="@{${article?.url}}">
+      <div class="article-headline" th:text="${article.headline}"></div>
+      <div class="article-content" th:text="${article.content}"></div>
+
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

@@ -102,7 +102,8 @@
 
         /* 뉴스 목록 */
         .article-list-container {
-            margin-top: 28px;
+            margin: 28px auto;
+            width: 800px;
         }
 
         .article-container {
@@ -164,10 +165,31 @@
             <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="/front/newsList">뉴스 보기</a>
+            <a class="nav-link" href="/front/newsList">전체</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="/front/myNews">MY 뉴스</a>
+            <a class="nav-link " href="/front/newsList/ItScience">IT과학</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/front/newsList/economy">경제</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/front/newsList/society">사회</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/front/newsList/culture">생활문화</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/front/newsList/world">세계</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/front/newsList/sports">스포츠</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/front/newsList/politics">정치</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/front/newsList/corona">코로나</a>
           </li>
           <li class="nav-item">
             <!-- <a sec:authorize="isAuthenticated()" class="nav-link" href="/user/logout">로그아웃</a> -->
@@ -180,101 +202,12 @@
 </div>
 <!-- 버튼 눌럿을때 함수 인듯? -->
 <div class="container">
-  <script>
-        function search() {
 
-        }
-    </script>
-  <!--
-      let tag = document.getElementsByClassName("tag-input")[0].value;
-      let category = $('input[name=category]:checked').val();
-      let sort = $('input[name=sort]:checked').val();
-      location.href = `/articles/search?tag=${tag}&category=${category}&sort=${sort}`;
-      -->
 
-  <!-- 뉴스 검색 -->
   <div class="form-group">
     <h2 style = >원하는 뉴스를 찾아보세요!</h2>
-    <!-- <input class="form-control tag-input" type="text" placeholder="해시태그를 검색해보세요!" th:value="${tag}"/>
-    <button class="btn search-btn" onclick="search()">검색</button> -->
-  </div>
 
-  <!-- 카테고리 필터링 -->
-  <div class="category">
-    <label>
-      <input class="hidden category-input" type="radio" name="category" value
-             th:attr="checked=${checkedCategory} == null" onclick="search()"/>
-      <div class="btn category-btn">전체</div>
-    </label>
-    <label>
-      <input class="hidden category-input" type="radio" name="category" value
-             th:attr="checked=${checkedCategory} == null" onclick="search()"/>
-      <div class="btn category-btn">IT과학</div>
-    </label>
-    <label>
-      <input class="hidden category-input" type="radio" name="category" value
-             th:attr="checked=${checkedCategory} == null" onclick="search()"/>
-      <div class="btn category-btn">경제</div>
-    </label>
-    <label>
-      <input class="hidden category-input" type="radio" name="category" value
-             th:attr="checked=${checkedCategory} == null" onclick="search()"/>
-      <div class="btn category-btn">사회</div>
-    </label>
-    <label>
-      <input class="hidden category-input" type="radio" name="category" value
-             th:attr="checked=${checkedCategory} == null" onclick="search()"/>
-      <div class="btn category-btn">생활문화</div>
-    </label>
-    <label>
-      <input class="hidden category-input" type="radio" name="category" value= "세계" onclick="search()"/> <!-- 수정 본 -->
-      <div class="btn category-btn">세계</div>
-    </label>
-    <label>
-      <input class="hidden category-input" type="radio" name="category" value
-             th:attr="checked=${checkedCategory} == null" onclick="search()"/>
-      <div class="btn category-btn">스포츠</div>
-    </label>
-    <label>
-      <input class="hidden category-input" type="radio" name="category" value
-             th:attr="checked=${checkedCategory} == null" onclick="search()"/>
-      <div class="btn category-btn">정치</div>
-    </label>
-    <label>
-      <input class="hidden category-input" type="radio" name="category" value
-             th:attr="checked=${checkedCategory} == null" onclick="search()"/>
-      <!-- <div class="btn category-btn">코로나</div> -->
-      <a class="btn category-btn" href="/front/newsList/코로나">코로나</a>
-    </label>
-    <!-- <label th:each="category : ${categories}">
-        <input class="hidden category-input" type="radio" name="category"
-               th:attr="checked=${checkedCategory} == ${category}"
-               th:value="${category}" onclick="search()"/>
-        <div class="btn category-btn" th:text="${category.getValue()}"></div>
-    </label> -->
   </div>
-
-  <!-- 정렬 -->
-  <!-- <div class="sort">
-      <label>
-          <input class="hidden sort-input" type="radio" name="sort" value="createdAt"
-                 th:attr="checked=${sort} == 'createdAt'" onchange="search()"/>
-          <img src="/images/gray-ellipse.svg"/>
-          <div>최신순</div>
-      </label>
-      <label>
-          <input class="hidden sort-input" type="radio" name="sort" value="viewCount"
-                 th:attr="checked=${sort} == 'viewCount'" onclick="search()"/>
-          <img src="/images/gray-ellipse.svg"/>
-          <div>조회순</div>
-      </label>
-      <label>
-          <input class="hidden sort-input" type="radio" name="sort" value="clipCount"
-                 th:attr="checked=${sort} == 'clipCount'" onclick="search()"/>
-          <img src="/images/gray-ellipse.svg"/>
-          <div>스크랩순</div>
-      </label>
-  </div> -->
 
 
   <!-- 뉴스 목록 -->

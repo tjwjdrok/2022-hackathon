@@ -86,10 +86,31 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/front/newsList">뉴스 보기</a>
+                        <a class="nav-link" href="/front/newsList">전체</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="/front/myNews">MY 뉴스</a>
+                        <a class="nav-link " href="/front/newsList/ItScience">IT과학</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/front/newsList/economy">경제</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/front/newsList/society">사회</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/front/newsList/culture">생활문화</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/front/newsList/world">세계</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/front/newsList/sports">스포츠</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/front/newsList/politics">정치</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/front/newsList/corona">코로나</a>
                     </li>
                     <li class="nav-item">
                         <!-- <a sec:authorize="isAuthenticated()" class="nav-link" href="/user/logout">로그아웃</a> -->
@@ -104,14 +125,14 @@
 <!-- 로그인 폼-->
 <div class="container">
     <div class="head text-center">로그인</div>
-    <form action="/user/login" method="post">
+    <form action="/" method="post">
         <div class="form-group">
             <input type="email" name="email" class="form-control" placeholder="이메일">
         </div>
         <div class="form-group">
             <input type="password" name="password" class="form-control" placeholder="비밀번호">
         </div>
-        <button class="btn">로그인</button>
+        <button class="btn" onclick="">로그인</button>
     </form>
     <div class="other-group">
         <span class="register-title">아직 회원이 아니신가요? </span>
@@ -129,5 +150,7 @@
         const errorDiv = document.getElementById('login-failed');
         errorDiv.style.display = 'block';
     }
+
+    function () => {
 </script>
 </html>
